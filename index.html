@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VexeraDubbing - Присоединиться к команде озвучки</title>
     <style>
-        /* Ваши существующие стили */
         :root {
             --primary: #6a55fa;
             --dark: #1a1a2e;
@@ -26,9 +25,271 @@
             line-height: 1.6;
         }
         
-        /* Остальные стили остаются без изменений */
-        /* ... */
+        header {
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
         
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            background: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(var(--primary), transparent);
+            filter: blur(80px);
+            opacity: 0.3;
+            top: 20%;
+            left: 10%;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(var(--accent), transparent);
+            filter: blur(60px);
+            opacity: 0.2;
+            bottom: 20%;
+            right: 10%;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            z-index: 2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            z-index: 2;
+        }
+        
+        .highlight {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.2rem 0.8rem;
+            border-radius: 8px;
+            color: #ff7aa2;
+            border: 1px solid rgba(255, 122, 162, 0.3);
+        }
+        
+        .cta-button {
+            background: linear-gradient(90deg, var(--primary) 0%, #8a77ff 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+            box-shadow: 0 4px 20px rgba(106, 85, 250, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(106, 85, 250, 0.6);
+        }
+        
+        .roles {
+            padding: 5rem 5%;
+            background: rgba(255, 255, 255, 0.03);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .role-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+        }
+        
+        .role-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(106, 85, 250, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .role-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .role-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .application {
+            padding: 5rem 5%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(106, 85, 250, 0.1);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(90deg, var(--accent) 0%, #ff95b6 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 2rem auto 0;
+            width: fit-content;
+        }
+        
+        .submit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 122, 162, 0.5);
+        }
+        
+        .notice {
+            background: rgba(255, 122, 162, 0.15);
+            border: 1px solid rgba(255, 122, 162, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            margin: 3rem 0;
+            font-weight: 500;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -128,7 +389,6 @@
     </footer>
 
     <script>
-        // Добавьте эту часть в конец вашего скрипта
         document.getElementById('join-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -143,7 +403,7 @@
             };
             
             try {
-                // Используем ВАШ URL на Render
+                // Отправка на ваш сервер Render
                 const response = await fetch('https://vexeradubbingplayerbottg.onrender.com/submit', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
@@ -153,16 +413,16 @@
                 const result = await response.json();
                 
                 if (response.ok) {
-                    alert('✅ Заявка отправлена! ID: ' + result.application_id);
+                    alert('✅ Заявка отправлена! Администраторы рассмотрят её в ближайшее время.');
                     this.reset();
                 } else {
-                    throw new Error(result.message || 'Ошибка сервера');
+                    throw new Error(result.message || 'Ошибка при отправке заявки');
                 }
             } catch (error) {
                 console.error(error);
-                alert('❌ Ошибка: ' + error.message);
+                alert('❌ Произошла ошибка: ' + error.message);
             }
         });
     </script>
 </body>
-</html>
+            </html>
